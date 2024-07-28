@@ -5,3 +5,10 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.11", features = ["derive"] }
+
+[profile.release]
+# https://github.com/johnthagen/min-sized-rust
+strip = true      # automatically strip symbols from the binary
+opt-level = 's'   # optimize for size (default is to speed)
+lto = true        # enable link time optimization
+codegen-units = 1 # maximize size reduction optimisations (compile time increases)
