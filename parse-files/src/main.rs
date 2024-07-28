@@ -5,9 +5,15 @@
 // $ cargo run -- text --input-path $PWD --file-extesion "log"
 
 use clap::Parser;
-use parse_files::cmd::config::{self};
+use parse_files::cmd::config;
+use parse_files::files::listfiles;
 
 fn main() {
     let cli = config::FileParser::parse();
-    cli.input_arguments();
+    let args = cli.input_arguments();
+
+    let files = listfiles::list_files(&args);
+    if let Ok(file) = files {
+        println!("\nFiles found in {:?}:\n\n{:?}", args.path, file);
+    }
 }

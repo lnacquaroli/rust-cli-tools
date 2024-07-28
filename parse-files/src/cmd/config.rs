@@ -2,8 +2,8 @@ use clap::{command, Args, Parser, Subcommand};
 use std::path::PathBuf;
 
 pub struct InputArgs {
-    extension: String,
-    path: PathBuf,
+    pub extension: String,
+    pub path: PathBuf,
 }
 
 #[derive(Debug, Parser)]
