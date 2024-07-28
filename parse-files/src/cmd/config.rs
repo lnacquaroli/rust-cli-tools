@@ -1,6 +1,7 @@
 use clap::{command, Args, Parser, Subcommand};
 use std::path::PathBuf;
 
+#[derive(Debug, Default, Clone)] // PartialEq, Hash, Eq, PartialOrd, Ord
 pub struct InputArgs {
     pub extension: String,
     pub path: PathBuf,
