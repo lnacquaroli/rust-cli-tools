@@ -11,9 +11,14 @@ use parse_files::files::listfiles;
 fn main() {
     let cli = config::FileParser::parse();
     let args = cli.input_arguments();
+    let patterns = vec![r"name", r"codegen"];
 
-    let files = listfiles::list_files(&args);
-    if let Ok(file) = files {
-        println!("\nFiles found in {:?}:\n\n{:?}", args.path, file);
+    let results = listfiles::read_files(&args, &patterns);
+
+    for (pattern, matches) in results.unwrap() {
+        println!("Pattern: {}", pattern);
+        for mat in matches {
+            println!("  Match: {}", mat);
+        }
     }
 }

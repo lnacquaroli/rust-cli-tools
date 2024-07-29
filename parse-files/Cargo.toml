@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = "1.0.86"
 clap = { version = "4.5.11", features = ["derive"] }
+regex = "1"
 
 [profile.release]
 # https://github.com/johnthagen/min-sized-rust
